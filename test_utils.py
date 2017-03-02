@@ -9,16 +9,16 @@ class TestUtils(unittest.TestCase):
     def test_fact(self):
         self.assertEqual(utils.fact(0), 1)
         self.assertEqual(utils.fact(3), 6)
-        with self.assertRaises(ValueError):
-            utils.fact(-1)
+        with self.assertRaises(NameError):
+            utils.fact(bonjour)
     
     def test_roots(self):
-        self.assertEqual(utils.roots(1,2,3), tuple())
-        self.assertEqual(utils.roost(1, 2, 1), (-1))
-        self.assertEqual(utils.roost(1, 2, 1), (-2,-1))
+        self.assertEqual(utils.roots(1,2,3),("None", "None"))
+        self.assertEqual(utils.roots(1 , -5, 4), (4, 1))
+        self.assertEqual(utils.roots(1,2,1), (-1, 0))
 
     def test_integrate(self):
-       self.assertEqual(utils.integrate('x ** 2 - 1', -1, 1), -4/3)
+       self.assertEqual(utils.integrate('x ** 2 - 1', -1, 1), -1.3333)
 
 
 
