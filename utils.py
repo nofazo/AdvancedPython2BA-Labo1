@@ -1,6 +1,7 @@
-# Math library
 # Author: Sébastien Combéfis
 # Version: February 2, 2016
+import math
+
 
 def fact(n):
     """Computes the factorial of a natural number.
@@ -18,7 +19,7 @@ def fact(n):
         return n * fact(n - 1)
 
       else:
-         return print("Veuillez entrer un nombre entier positif")
+         return print("Veuillez entrer un nombre naturel")
 
     except:
         return print("Veuillez entrer un nombre correct")
@@ -35,30 +36,30 @@ def roots(a, b, c):
     delta = (b ** 2) - 4 * a * c
 
     if delta == 0:
-        return (0, 0)
+        return (-b/(2*a), 0)
 
     if delta < 0:
         return ("None", "None")
 
     if delta > 0:
-        x = (-b + sqrt(delta)) / (2 * a)
-        y = (-b - sqrt(delta)) / (2 * a)
+        x = (-b + math.sqrt(delta)) / (2*a)
+        y = (-b - math.sqrt(delta)) / (2*a)
     return (x, y)
 
 def integrate(function, lower, upper):
     """Approximates the integral of a fonction between two bounds
-    
+
     Pre: 'function' is a valid Python expression with x as a variable,
          'lower' <= 'upper',
          'function' continuous and integrable between 'lower‘ and 'upper'.
     Post: Returns an approximation of the integral from 'lower' to 'upper'
           of the specified 'function'.
     """
-    a = lower
+    x = lower
     sum = 0
-    while a <= upper:
+    while x <= upper:
         sum += eval(function) * 0.01
-        a += 0.01
+        x += 0.01
 
     return sum
 
