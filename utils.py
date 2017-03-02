@@ -35,13 +35,10 @@ def roots(a, b, c):
     """
     delta = (b ** 2) - 4 * a * c
 
-    if delta == 0:
-        return (-b/(2*a), 0)
-
     if delta < 0:
         return ("None", "None")
 
-    if delta > 0:
+    if delta >= 0:
         x = (-b + math.sqrt(delta)) / (2*a)
         y = (-b - math.sqrt(delta)) / (2*a)
     return (x, y)
